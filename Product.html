@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Product</title>
+    <meta name="description" content="Online Bakery Store">
+    <meta name="keywords" content="Buy,Products">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/27_Johnson.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+    
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;0,800;1,600&display=swap');
+
+    .container1 {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+    .container {
+    font-family: 'Poppins', sans-serif;
+   
+    }
+
+    .container1 {
+    margin: 0 auto;
+    max-width: 1160px;
+    }
+
+    .btn__small {
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 0px;
+    background: #40a832e5;
+    color: #fff;
+    margin: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    }
+
+    .btn {
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 0px;
+    background: #40a832e5;
+    color: #fff;
+    margin-left: 20px;
+    font-size: 18px;
+    cursor: pointer;
+    }
+
+    .btn_remove {
+    background: #ec4949;
+    }
+
+    h4 {
+    display: inline;
+    }
+
+
+    .cart__counter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color:#40a832e5;
+    width: 70px;
+    height: 70px;
+    position: relative;
+    top: 0%;
+    left: 0%;
+    }
+
+    .cart__counter span {
+    color: #fff;
+    position: relative;
+    /* top: 30%;
+    left: 30%; */
+    font-size: 20px;
+    margin: 8px;
+    }
+
+    .fa-shopping-cart {
+    color: #fff;
+    font-size: 25px !important;
+    }
+
+    .cart__items {
+    animation: show__cart 1s ease-in-out;
+    position: absolute;
+    right: 10%;
+    top: 18%;
+    padding: 20px;
+    display: none;
+    background: #FFF;
+    border-radius: 10px;
+    z-index: 2;
+    width: 700px;
+    box-shadow: 2px 2px 10px rgba(151, 146, 146, 0.924);
+    border-bottom: 1px solid #f6b08c;
+    }
+
+    .cart__items:before {
+    content: '';
+    position: absolute;
+    top: -5%;
+    right: 3%;
+    width: 30px;
+    height: 50px;
+    background: rgb(255, 255, 255);
+    transform: rotate(45deg);
+    box-shadow: 2px 0px 10px -2px rgb(255, 255, 255);
+    }
+
+    .cart__items.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    }
+
+    .cart_item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+    border-bottom: 1px dashed #f6b08c;
+    }
+
+    .cart_item >* {
+    margin: 20px;
+    }
+
+    .cart_item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    }
+
+    .total__cost {
+    padding:20px;
+    position: relative;
+    top: 80%;
+    left: 3%;
+    }
+
+    .check_out {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    }
+
+    .products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 50px;
+    grid-gap: 10px;
+    }
+
+    .products .product__element {
+    padding: 20px;
+    width: 300px;
+    height: 300px;
+    background: #ffffff;
+    box-shadow: 2px 4px 10px rgba(194, 182, 182, 0.9);
+    border-radius: 10px;
+    }
+
+    .products .product__element img {
+    position: relative;
+    /* top: 10%; */
+    left: 10%;
+    width: 60%;
+    border-radius: 20px;
+    }   
+
+    .products .product__element .product__name {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 5px;
+    margin-left: 10px;
+    }
+
+    .products .product__element .product__price {
+    font-size: 20px;
+    margin: 10px;
+    }
+
+    .btn__add__to__cart {
+    position: relative;
+    /*top: 10%;*/ 
+    bottom: 0;
+    background: #40a832e5;
+    color: #fff;
+    width: 100%;
+    /* margin: 0 auto; */
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    }
+
+    .btn__add__to__cart:hover {
+    background: #40a832c2;
+    }
+
+    @keyframes show__cart {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+    }
+
+    @media only screen and (max-width : 480px) {
+    .products {
+        grid-template-columns: 1fr;
+
+    }
+
+    .product__element {
+        margin: 20px auto;
+    }
+
+    .cart__items {
+        width: 340px;
+        right: 6%;
+        top: 8%;
+    }
+
+    .cart_item {
+        width: 340px;
+        /* padding: 10px; */
+    }
+
+    .cart_item > * {
+        margin: 5px;
+        padding: 5px;
+    }
+
+    .check_out {
+        font-size: 12px;
+    }
+
+ 
+    }
+
+    @media only screen and (min-width : 481px) {
+    .products {
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    .product__element {
+        margin: 20px auto;
+    }
+    }
+
+    @media only screen and (min-width : 800px) {
+    .products {
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+
+    .cart__items {
+        right:3%;
+        top: 8%;
+    }
+
+    .product__element {
+        margin: 20px auto;
+    }
+        }
+
+    </style>
+</head>
+<body>
+       
+    <header>
+    <nav>
+    <img src="images/Logo.jpg" alt="Logo" class="center2">
+    <ul class="left">
+    <li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+    <li><a href="Product.html">Product</a></li>
+   
+    <li><a href="Contact_Us.html">Contact</a></li>
+    </ul>
+
+    <ul class="right">
+        
+    <li><a href="Contact_Us.html"><i class="fa fa-wpforms" aria-hidden="true"></i></a></li>
+
+    </ul>
+    </nav>
+  
+    <img src="images/Banner5.jpg" alt="banner" class="center" style="margin-top:30px;">
+ 
+    
+    </header>
+    
+    <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
+
+  
+    <div class="container">
+    <header style="margin-top:50px;">
+    <nav>
+    <div class="cart__counter">
+    <i class="fa fa-shopping-cart"></i><span id="total__counter">0</span>
+    </div>
+    </nav>
+    <div class="cart">
+    <div class="cart__items">
+    <form method="POST" action="mailto:mojolim13@gmail.com">
+    <div class="check_out"><h4>Total Amount : $</h4><h4 class="total__cost">0</h4><button name="Checkout"
+        class="btn check_out_btn " value="Submit">Checkout</button></div>
+    </form>
+    </div>
+    </div>
+    </header>
+
+    <div class="products">
+    <div class="product__element">
+    <input type="hidden" name="Starry Cake" id="product__id1" value="1" />
+    <img src="images/cake2_1.jpg" alt="star cake"  id="image1" />
+    <br>
+    <br>
+    <h4 class="product__name">Starry Cake</h4>
+    <h5 class="product__price">$80</h5>
+    <div class="btn__add__to__cart">Add To Cart</div>
+    </div>
+          
+    <div class="product__element">
+    <input type="hidden" name="Half Cake" id="product__id2" value="2" />
+    <img src="images/Cake3_1.jpg" alt="Half-eaten cake"  id="image2" />
+    <br>
+    <br>
+    <h4 class="product__name">Half eaten cake</h4>
+    <h5 class="product__price">$45</h5>
+    <div class="btn__add__to__cart">Add To Cart</div>
+    </div>
+          
+    <div class="product__element">
+    <input type="hidden" name="B_and_W Cake" id="product__id3" value="3" />
+    <img src="images/B_and_W_1.jpg" alt="Black and White Cupcakes"  id="image3" />
+    <br>
+    <br>
+    <h4 class="product__name">Black and White</h4>
+    <h5 class="product__price">$60</h5>
+    <div class="btn__add__to__cart">Add To Cart</div>
+    </div>
+        
+    <div class="product__element">
+    <input type="hidden" name="Cupcake2_!" id="product__id4" value="4" />
+    <img src="images/Cupcake2_1.jpg" alt="cupcake"  id="image4" />
+    <br>
+    <br>
+    <h4 class="product__name">Chocalate</h4>
+    <h6 class="product__price">$55</h6>
+    <div class="btn__add__to__cart">Add To Cart</div>
+    </div>
+          
+          
+    <div class="product__element">
+    <input type="hidden" name="Fruit Pie" id="product__id5" value="5" />
+    <img src="images/Pie_1.jpg" alt="Fruit Pie"  id="image5" />
+    <br>
+    <br>
+    <h4 class="product__name">Fruit Pie</h4>
+    <h6 class="product__price">$90</h6>
+    <div class="btn__add__to__cart">Add To Cart</div>
+    </div>
+          
+          
+          
+    <div class="product__element">
+    <input type="hidden" name="Pie on Stand" id="product__id6" value="6" />
+    <img src="images/Pie_2.jpg" alt="Pie on Stand" id="image6" />
+    <br>
+    <br>
+    <h4 class="product__name">Pie on Stand</h4>
+    <h6 class="product__price">$120</h6>
+    <div class="btn__add__to__cart">Add To Cart</div>
+    </div>
+    </div>
+    </div>
+	
+    <script src="js/main.js">
+  
+    </script>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <div>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/16Z9mSjkom0" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="center4"  style="margin-top:250px;" ></iframe>
+    </div>
+ 
+     
+    <footer class="margin"> 
+    <p>©Roller Bollivard, All rights reserved.</p>
+    </footer>
+    
+    <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i> </a>
+    
+    
+</body>
+</html>    

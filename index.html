@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Homepage</title>
+    <meta name="description" content="Online Bakery Homepage">
+    <meta name="keywords" content="Bakery,Cake,Cupcake">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/27_Johnson.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+     <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+    <style>
+    body{
+	margin:0;
+	font-family: sans-serif;
+	overflow-x: hidden;
+}
+
+*{
+	box-sizing: border-box;
+}
+
+.home{
+	height: 100vh;
+	overflow:hidden;
+	position: relative;
+}
+
+.home .slide{
+	position: absolute;
+	left:0;
+	top:0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+	z-index:1; 
+	display:none;
+	padding:0 15px;
+	animation: slide 2s ease;
+}
+.home .slide.active{
+	display: flex;
+}
+@keyframes slide{
+	0%{
+		transform:scale(1.1);
+	}
+	100%{
+		transform: scale(1);
+	}
+}
+.container{
+	max-width: 1170px;
+	margin:auto;
+	
+}
+
+.home .container{
+	 flex-grow: 1;
+}
+.home .caption{
+	width:50%;
+}
+.home .caption h2{
+	font-size:42px;
+	color:black;
+	margin:0;
+    text-align: center;
+	
+}
+.home .slide.active .caption h2{
+	opacity:0;
+	animation: captionText .5s ease forwards;
+	animation-delay:1s;
+}
+.home .caption p{
+	font-size: 18px;
+	margin:15px 0 30px;
+	color:black;
+    text-align: center;
+}
+.home .slide.active .caption p{
+	opacity:0;
+	animation: captionText .5s ease forwards;
+	animation-delay:1.2s;
+}
+.home .caption a{
+ display: inline-block;
+ padding:10px 15px;
+ background-color: #000000;
+ text-decoration: none;
+ color:#ffffff;
+ margin: 0;
+ position: absolute;
+ left: 45%;
+}
+
+.home .slide.active .caption a{
+	opacity:0;
+	animation: captionText .5s ease forwards;
+	animation-delay:1.4s;
+}
+
+@keyframes captionText{
+	0%{
+		opacity:0; transform: translateX(-100px);
+	}
+	100%{
+	 opacity:1; transform: translateX(0px);	
+	}
+}
+
+.home .controls .prev,
+.home .controls .next{
+ position: absolute;
+ z-index:2;
+ top:50%;
+ height:40px;
+ width: 40px;
+ margin-top: -20px;
+ color:#ffffff;
+ background-color: pink;
+ text-align: center;
+ line-height: 40px;
+ font-size:20px;
+ cursor:pointer;
+ transition: all .5s ease;
+}
+.home .controls .prev:hover,
+.home .controls .next:hover{
+	background-color: #000000;
+}
+.home .controls .prev{
+ left:0;
+}
+.home .controls .next{
+ right:0;
+}
+
+.home .indicator{
+	position: absolute;
+	left:50%;
+	bottom:30px;
+	z-index: 2;
+	transform: translateX(-50%);
+}
+
+.home .indicator div{
+	display: inline-block;
+	width:25px;
+	height: 25px;
+	color:#ffffff;
+	background-color: pink;
+	border-radius:50%;
+	text-align: center;
+	line-height: 25px;
+	margin:0 3px;
+}
+
+.home .indicator div.active{
+ background-color: #000;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+	.controls{
+		display: none;
+	}
+}
+    </style>
+</head>
+
+<body>
+       
+    <header>
+    <nav>
+    <img src="images/Logo.jpg" alt="Logo" class="center2">
+    <ul class="left">
+    <li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+    <li><a href="Product.html">Product</a></li>
+    <li><a href="Contact_Us.html">Contact</a></li>
+    </ul>
+   
+    <ul class="right">
+    <li><a href="Contact_Us.html"><i class="fa fa-wpforms" aria-hidden="true"></i></a></li>
+    </ul>
+    </nav>
+        
+    <img src="images/Banner5.jpg" alt="banner" class="center" style="margin-top:30px;">
+    </header>
+    
+    <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
+
+    <section class="home">
+    <div class="slider">
+    <div class="slide active" style="background-image: url('images/slider1.jpg')">
+    <div class="container">
+    <div class="caption">
+    <h2>1.Cupcakes</h2>
+    <p>We welcome all!</p>
+    <a href="Product.html">Shop Now</a>
+    </div>
+    </div>
+    </div>
+    <div class="slide" style="background-image: url('images/slider2.jpg')">
+    <div class="container">
+    <div class="caption">
+    <h2>2.Flowers</h2>
+    <p>We welcome all!</p>
+    <a href="Product.html">Shop Now</a>
+    </div>
+    </div>
+    </div>
+    <div class="slide" style="background-image: url('images/slider3.jpg')">
+    <div class="container">
+    <div class="caption">
+    <h2>3.In-store</h2>
+    <p>We welcome all!</p>
+    <a href="Product.html">Shop Now</a>
+    </div>
+    </div>
+    </div>
+    </div>
+   
+
+    <div class="controls">
+    <div class="prev">Pre </div>
+    <div class="next">Next</div>
+    </div>
+
+    <!-- indicators -->
+    <div class="indicator">
+    </div>
+
+    </section>
+
+ 
+ <script src="js/script.js"></script>
+
+     
+    
+    
+    <h1 class="textCtr1" style="color:black" >Featured Products</h1>
+    <div class="slide hi-slide" style="clear:both;">
+    <div class="hi-prev "></div>
+    <div class="hi-next "></div>
+    <ul>
+    <li><img src="images/Black-Forest-Cake.png" alt="Black Forest" class="img"/></li>
+    <li><img src="images/Cupcakes.jpeg" alt="cupcakes" class="img"/></li>
+    <li><img src="images/fruit_pie.jpg" alt="Fruity" class="img"/></li>
+    <li><img src="images/cake3.jpg" alt="birthday cake" class="img"/></li>
+    <li><img src="images/cake2.jpg" alt="2-cakes" class="img"/></li>
+    <li><img src="images/B_and_W.jpg" alt="Black and white cupcakes" class="img"/></li>
+    <li><img src="images/chirstmascupcake.jpeg" alt="Chirstmas" class="img"/></li>
+    <li><img src="images/3-tiers_cakes.jpeg" alt="3-tier cake" class="img"/></li>
+    </ul>
+    </div>
+		
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script  src="js/jquery.hislide.js" ></script>
+    <script>
+    $('.slide').hiSlide();
+    </script>
+    <br>
+    <br>
+    <video src="Short_Animation.mp4" controls width="50" class="center" autoplay loop muted></video>
+    <br>
+    <br>
+    <div class="container">
+    <div class="product">
+    <div class="product-card">
+    <h2 class="name">Berry Cupcake</h2>
+    <span class="price">$30</span>
+    <a class="popup-btn">Quick View</a>
+    <img src="images/Cupcake.gif" class="product-img" alt="cupcake">
+    </div>
+        
+    <div class="popup-view">
+    <div class="popup-card">
+    <a><i class="fas fa-times close-btn"></i></a>
+    <div class="product-img">
+    <img src="images/Cupcake.gif" alt="cupcake">
+    </div>
+    <div class="info">
+    <h2>Berry Cupcake<br><span>Cupcakes</span></h2>
+    <p>This cupcake is not only healthy but is good to share with others so we can better understaand what cupcake someone likes or how they feel after consuming one.</p>
+    <span class="price">$30</span>
+    </div>
+    </div>
+    </div>
+    </div>
+        
+    <div class="product">
+    <div class="product-card">
+    <h2 class="name"> Fruit Cake</h2>
+    <span class="price">$50</span>
+    <a class="popup-btn">Quick View</a>
+    <img src="images/Fruit_Cake.gif" class="product-img" alt="cake">
+    </div>
+    <div class="popup-view">
+    <div class="popup-card">
+    <a><i class="fas fa-times close-btn"></i></a>
+    <div class="product-img">
+    <img src="images/Fruit_Cake.gif" alt="cake">
+    </div>
+        
+    <div class="info">
+    <h2>Fruit Cake<br><span>Cake</span></h2>
+    <p>This cake is special as it bring happiness and it can easily be shared with those around you, be it your friends or family.</p>
+    <span class="price">$50</span>
+            
+    </div>
+    </div>
+    </div>
+    </div>
+        
+    <div class="product">
+    <div class="product-card">
+    <h2 class="name">Fruity Pies</h2>
+    <span class="price">$100</span>
+    <a class="popup-btn">Quick View</a>
+    <img src="images/Pie.gif" class="product-img" alt="Pie">
+    </div>
+    <div class="popup-view">
+    <div class="popup-card">
+    <a><i class="fas fa-times close-btn"></i></a>
+    <div class="product-img">
+    <img src="images/Pie.gif" alt="Pie">
+    </div>
+        
+    <div class="info">
+    <h2>Fruity Pies<br><span>Pies</span></h2>
+    <p>This fruity pie has known to be bought by many as it is interesting, easy to prepare and can be used in different occasions including learning how to make it by ourselves.</p>
+    <span class="price">$100</span>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <script>
+    var popupViews = document.querySelectorAll('.popup-view');
+    var popupBtns = document.querySelectorAll('.popup-btn');
+    var closeBtns = document.querySelectorAll('.close-btn');
+
+    //javascript for quick view button
+    var popup = function(popupClick){
+    popupViews[popupClick].classList.add('active');
+    }
+
+    popupBtns.forEach((popupBtn, i) => {
+    popupBtn.addEventListener("click", () => {
+    popup(i);
+    });
+    });
+
+    //javascript for close button
+    closeBtns.forEach((closeBtn) => {
+    closeBtn.addEventListener("click", () => {
+    popupViews.forEach((popupView) => {
+    popupView.classList.remove('active');
+    });
+    });
+    });
+    
+    </script>
+
+   
+    <footer>
+    <p>©Roller Bollivard, All rights reserved.</p>
+    </footer>
+    
+    <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i> </a>
+</body>
+</html>
